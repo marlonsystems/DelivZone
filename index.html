@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DelivZone — Anmeldung</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="daten_speicher.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav-inner">
+      <div class="nav-item">Suche</div>
+      <div class="nav-item logo">DelivZone</div>
+      <div class="nav-item cart">Warenkorb</div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="auth-wrap">
+      <h1 class="title">Anmeldung / Registrieren</h1>
+
+      <div class="toggle-type" role="radiogroup" aria-label="Account-Typ">
+        <button class="type-btn active" data-type="privat">Privat</button>
+        <button class="type-btn" data-type="unternehmen">Unternehmen</button>
+      </div>
+
+      <form id="authForm" class="form-card" autocomplete="off" novalidate>
+        <!-- PRIVAT FIELDS -->
+        <fieldset class="fields group-privat">
+          <label class="label">Name
+            <input name="name" type="text" placeholder="Vor- & Nachname" />
+          </label>
+          <label class="label">Geburtsdatum
+            <input name="dob" type="date" />
+          </label>
+          <label class="label">Email
+            <input name="email" type="email" placeholder="name@mail.de" />
+          </label>
+          <label class="label">Passwort
+            <input name="password" type="password" placeholder="mind. 8 Zeichen" />
+          </label>
+        </fieldset>
+
+        <!-- UNTERNEHMEN FIELDS -->
+        <fieldset class="fields group-unternehmen hidden">
+          <label class="label">Unternehmensname
+            <input name="company_name" type="text" placeholder="Firma GmbH" />
+          </label>
+          <label class="label">URL (optional)
+            <input name="company_url" type="url" placeholder="https://www.deine-firma.de" />
+          </label>
+          <label class="label">E-Mail
+            <input name="company_email" type="email" placeholder="kontakt@firma.de" />
+          </label>
+          <label class="label">Passwort
+            <input name="company_password" type="password" placeholder="mind. 8 Zeichen" />
+          </label>
+          <label class="label">Lizenz / UID (optional)
+            <input name="company_license" type="text" placeholder="USt-ID oder Lizenznummer" />
+          </label>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Konto erstellen / Einloggen</button>
+        </div>
+
+        <div class="helper">
+          <input id="remember" type="checkbox" />
+          <label for="remember">Daten lokal speichern (sicher)</label>
+        </div>
+
+        <div id="msg" class="msg" aria-live="polite"></div>
+      </form>
+
+      <div class="storage-actions">
+        <button id="exportBtn" class="btn outline">Daten exportieren</button>
+        <input id="importFile" type="file" accept="application/json" style="display:none"/>
+        <button id="importBtn" class="btn outline">Daten importieren</button>
+        <button id="clearBtn" class="btn warn">Alle lokalen Daten löschen</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2025 DelivZone</div>
+  </footer>
+</body>
+</html>
